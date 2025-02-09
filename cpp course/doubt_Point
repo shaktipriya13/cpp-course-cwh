@@ -1,0 +1,6 @@
+1. tut7 -sizeof(98.0l); is valid but sizeof(98f) or sizeof(98l) is not valid.
+-->Let's break it down:
+
+1. `sizeof(98.0l)`: This is valid because `98.0l` is a specific value of type `long double`. When you use `sizeof` with it, you're asking for the size in bytes of this particular type (`long double`). It's like asking, "How much memory does this specific `long double` value take?"
+
+2. `sizeof(98f)` and `sizeof(98l)`: These are not valid because `98f` and `98l` are not types, they are just values with different suffixes indicating their types (`f` for `float` and `l` for `long double`). `sizeof` needs a type or an expression whose size it can determine. It's like asking, "How much memory does the number 98 take?" which doesn't make sense because `98` is just a number, not a data type or an expression whose size can be determined.

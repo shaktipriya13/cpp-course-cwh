@@ -1,0 +1,64 @@
+start of 17 lec: OVERHEAD
+In programming, "overhead" refers to any additional resources or processing time required by a program or operation beyond what is strictly necessary to accomplish the primary task. It represents the extra burden, such as time, memory, or computational power, that a particular feature, process, or technique introduces.eg:
+
+Time Overhead: This refers to the additional time taken to perform tasks that are not directly related to the main computation. For example, excessive looping, unnecessary function calls, or complex algorithms that take longer to execute.
+
+Memory Overhead: This occurs when a pro1gram uses more memory than necessary. It could be due to inefficient data structures, excessive variable declarations, or storing redundant information.
+
+Overhead is generally considered undesirable because it can reduce efficiency, increase computational time, or consume unnecessary resources, leading to suboptimal performance. In programming, optimizing code to minimize overhead is crucial, especially in performance-critical applications or systems where efficiency is paramount. Techniques such as code optimization, using efficient algorithms, and avoiding redundant operations are employed to reduce overhead and improve overall program efficiency
+
+eg: calling a same fxn 10 or more times may lead to extra overhead, so we use inline fxns
+as time complexity increases as internally bar bar bhut sare kam hote ha while caling a fxn...like assiging values to formal parameters ,then calculating sum ,returning value again...so it takes a lot of time
+
+in inline fxn the compiler replaces the fxn call by fxn code during run time only
+ only those fxns should be made inline that takes very few lines of code...jab fxn me na ke barabar kam ho rha ha
+ if u make large fxns as inline then memory will not left in cache as memory taken would be huge.....it will be then disadvantageous for usage
+
+  Using inline fxn for large or complex functions might lead to code bloat and reduced cache efficiency
+
+Code bloat refers to a situation where a software program, particularly its compiled executable or the generated machine code, becomes significantly larger and more complex than necessary.
+
+
+ note: It's important to note that the decision to inline a function is ultimately made by the compiler. The inline keyword is a suggestion to the compiler rather than a command, and the compiler may choose not to inline a function if it deems it unsuitable (e.g., if the function is too large or contains loops).
+
+
+ //STATIC VARIABLES:
+ In C++, `static` variables have different meanings based on their context—whether they are used inside functions or as class members.
+
+### 1. Static Variables inside Functions (Static Local Variables):
+When declared inside a function, a `static` variable maintains its value between function calls. It is initialized only once at the start of the program and retains its value until the program exits. Here's an example:
+
+```cpp
+void myFunction() {
+    static int count = 0;  // Static local variable
+    
+    count++;  // Increment count across function calls
+}
+```
+
+- **Scope**: Limited to the block where it's declared.
+- **Lifetime**: Persists throughout the program's execution.
+- **Initialization**: Occurs only once when the program starts.
+
+### 2. Static Variables as Class Members (Static Member Variables):
+Inside a class, a `static` variable is shared among all instances (objects) of the class. It belongs to the class rather than individual objects. Example:
+
+```cpp
+class MyClass {
+public:
+    static int staticVar;  // Static member variable
+};
+```
+
+- **Scope**: Belongs to the entire class.
+- **Lifetime**: Exists throughout the program's execution.
+- **Initialization**: Often initialized outside the class definition.
+
+Key characteristics of static variables:
+- **Single Initialization**: Initialized only once, regardless of how many times the function is called or instances of the class are created.
+more than one class can call the same static variable which is declared outside all classes
+- **Persistent Value**: Retains its value across function calls or instances of the class.
+- **Shared State**: In the case of static member variables, the value is shared among all instances of the class.
+
+Static variables offer a way to maintain state information across multiple calls or instances without using global variables. They are often used for counters, caching values, or maintaining shared data among objects of a class.
+In C++, the global keyword itself doesn't exist

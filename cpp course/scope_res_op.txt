@@ -1,0 +1,13 @@
+The scope resolution operator is a powerful tool in C++ for resolving names from different scopes and ensuring that the correct variable or function is being accessed in cases of name conflicts or when dealing with entities defined in various scopes.
+
+It's used to specify the context or namespace from which a particular variable or function is being accessed.
+
+It's particularly useful when there's a name conflict between different scopes, allowing you to access the intended member.
+
+With global scope (::), it accesses variables or functions declared in the global namespace, even if there are local variables with the same name
+
+
+Best Practices:
+While it provides flexibility in accessing elements from various scopes, excessive use of the scope resolution operator can reduce code readability. Use it judiciously.
+
+Avoid relying heavily on global variables accessed through :: as it can make code harder to maintain and understand.

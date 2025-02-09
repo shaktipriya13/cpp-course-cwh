@@ -1,0 +1,24 @@
+Call by Value & Call by Reference in C++
+
+In C++, when you pass arguments to a function, there are two ways they can be passed: "Call by Value" and "Call by Reference." These methods differ in how they handle the passing of arguments and modifying their values within the function
+
+Call by Value:
+Mechanism: When you pass arguments by value, a copy of the actual data is made and passed to the function. Any changes made to these parameters inside the function do not affect the original variables outside the function.
+Syntax: By default, C++ uses call by value for primitive data types and objects that don't use reference or pointer types explicitly.
+
+Call by Reference:
+Mechanism: When you pass arguments by reference, you're actually passing a reference or address of the variable to the function. Any changes made to these parameters inside the function directly affect the original variables outside the function.
+Syntax: You use references or pointers explicitly to achieve call by reference.
+
+Call by value is useful when you want to work with the values without modifying the original ones, while call by reference allows modification of original values within functions.
+
+
+
+NOTE;
+Call by Value: When arguments are passed by value, a copy of the value is made and passed to the function. "Within the function, modifications to these values only affect the local copies, not the original variables. 
+"After the function execution, these local copies are destroyed.""
+
+However, with call by reference, changes made to the original variables persist beyond the function's scope.
+
+
+

@@ -1,0 +1,11 @@
+1.Write a C++ program to implement a recursive function to check if a given string is a palindrome.
+Click me to see the solution
+
+9. Write a C++ program to implement a recursive function to reverse a linked list.
+Click me to see the solution
+
+ Write a C++ program to reverse a string using recursion.
+
+ Write a C++ program to implement a recursive function to check if a given binary tree is a binary search tree.
+
+
