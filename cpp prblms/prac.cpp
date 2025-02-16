@@ -1,32 +1,106 @@
-// This is a function problem. You only need to complete the function nextLargerElement() that takes list of integers arr[ ] and N as input parameters and returns list of integers of length N denoting the next greater elements for all the corresponding elements in the input array.
-#include<iostream>
+#include<bits/stdc++.h>
+
 using namespace std;
-void fxn(int arr[],int n){
-    int min[n];
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(arr[j]>arr[i]){
-                min[i]=arr[j];
-                goto l1;
-            }
-            else{
-                min[i]=-1;
-                goto l1;
-            }
-        }
-        l1:
-        cout<<" ";
-    }
-    cout<<"required values are:"<<endl;
-    for(int i=0;i<n;i++){
-        cout<<min[i]<<" ";
-    }
+
+int main() {
+
 }
 
 
-int main(){
+class Solution {
 
-    int arr[]={6,8,0,1,3};
-    fxn(arr,5);
-    return 0;
-}
+     private:
+     bool isSafe(vector<vector<char>> &grid, int r, int c,
+          vector<vector<bool>> &visited){
+               int row=grid.size();
+               int col=grid[0].size();
+
+               return (r>=0 && r<row && c>=0 && c<col && grid[r][c]=='1' && !visited[r][c]);
+          }
+     void dfs(vector<vector<char>>&grid,int r,int c,vector<vector<bool>> &visited){
+          vector<int> rNbr = {-1, -1, -1, 0, 0, 1, 1, 1};
+          vector<int> cNbr = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+          visited[r][c]=true;
+
+          for(int k=0;k<8;++k){
+               int newR=r+rNbr[k];
+               int newC=r+cNbr[k];
+
+               if(isSafe(grid,newR,newC,visited)){
+                    dfs(grid,newR,newC,visited);
+               }
+          }
+     }
+     public:
+       int numIslands(vector<vector<char>>&grid){
+               int row=grid.size();
+               int col=grid[0].size();
+
+               vector<vector<bool>> visited(row,vector<bool>(col,false));
+
+               int count=0;
+               for(int r=0;r<row;++r){
+                    for(int c=0;c<col;++c){
+                         if(grid[r][c]=='1' && !visited[r][c]){
+                              dfs(grid,r,c,visited);
+                              ++count;
+                         }
+                    }
+               }
+               return count;
+          }
+   };
+   
+
+
+
+
+
+
+
+
+
+
+
+
+   class Solution {
+     public:
+       bool isSafe(int r,int c,vector<vector<char>>& grid,vector<vector<bool>> &visited){
+               int row=grid.size();
+               int col=grid[0].size();
+
+               return (r>=0 && r<row && c>=0 && c<col && grid[r][c]=='1' && !visited[r][c]);
+       }
+       void dfs(vector<vector<char>>& grid,vector<vector<bool>> &visited,int r,int c){
+          int nRno[8]={0,-1,-1,-1,0,1,1,1};
+          int nCno[8]={-1,-1,0,1,1,1,0,-1};
+          visited[r][c]=true;
+          for(int i=0;i<8;++i){
+               int newR=r+nRno[i];
+               int newC=c+nCno[i];
+               if(isSafe(newR,newC,grid,visited)){
+                    dfs(grid,visited,newR,newC);
+               }
+          }
+
+       }
+       int numIslands(vector<vector<char>>& grid) {
+               int r=grid.size();
+               int c=grid[0].size();
+               int count=0;
+
+               vector<vector<bool>> visited(r,vector<bool>(c,false));
+               for(int i=0;i<r;++i){
+                    for(int j=0;j<c;++j){
+                         if(grid[i][j]=='1' && !visited[i][j]){
+                              dfs(grid,visited,i,j);
+                              count++;
+                         }
+                    }
+               }
+               return count;
+       }
+   };
+   
+   

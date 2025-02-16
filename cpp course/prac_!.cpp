@@ -1,8 +1,12 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-static int p;
-int main(){
 
-    cout<<p;
-    return 0;
+int main() {
+
+    int num=10;
+    int *ptr=&num;
+    
+    cout<<"ptr"<<ptr<<endl;
+    cout<<"ptr"<<ptr<<endl;
+
 }
